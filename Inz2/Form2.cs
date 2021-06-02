@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Inz2
 {
@@ -17,9 +18,24 @@ namespace Inz2
             InitializeComponent();
         }
 
+        
+
         private void Form2_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                MySqlConnection connection = new MySqlConnection("datasource=localhost;port=3306;username=root;password=");
+                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM test.oceny", connection);
+                connection.Open();
+                DataSet ds = new DataSet();
+                adapter.Fill(ds, "oceny");
+                dataGridView1.DataSource = ds.Tables["oceny"];
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

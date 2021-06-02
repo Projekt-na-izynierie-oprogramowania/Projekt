@@ -34,9 +34,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.testcolumnname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,21 +95,6 @@
             this.button1.Text = "Powrót";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.testcolumnname});
-            this.dataGridView1.Location = new System.Drawing.Point(13, 45);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(775, 361);
-            this.dataGridView1.TabIndex = 11;
-            // 
-            // testcolumnname
-            // 
-            this.testcolumnname.HeaderText = "testcolumntitle";
-            this.testcolumnname.Name = "testcolumnname";
-            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -120,13 +104,21 @@
             this.comboBox1.TabIndex = 12;
             this.comboBox1.Text = "Wybierz studenta";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(13, 45);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(728, 317);
+            this.dataGridView1.TabIndex = 13;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label5);
@@ -150,8 +142,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn testcolumnname;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
