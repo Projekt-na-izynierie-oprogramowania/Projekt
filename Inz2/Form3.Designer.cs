@@ -56,6 +56,7 @@
             this.button1.TabIndex = 15;
             this.button1.Text = "Powrót";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button5
             // 
@@ -65,6 +66,7 @@
             this.button5.TabIndex = 14;
             this.button5.Text = "Zgłoś problem techniczny";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label5
             // 
@@ -132,7 +134,6 @@
             this.button2.TabIndex = 19;
             this.button2.Text = "Edytuj";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 

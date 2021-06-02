@@ -84,6 +84,7 @@
             this.button5.TabIndex = 9;
             this.button5.Text = "Zgłoś problem techniczny";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button1
             // 
@@ -94,6 +95,7 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Powrót";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox1
             // 
