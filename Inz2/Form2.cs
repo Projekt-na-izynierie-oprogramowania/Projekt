@@ -138,7 +138,25 @@ namespace Inz2
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            this.Refresh();
+            string MySQLConnectionString = "datasource = localhost; port = 3306; username = root; password =; database=dzienniczekv1";
+            MySqlConnection databaseConnection = new MySqlConnection(MySQLConnectionString);
+
+            try
+            {
+                databaseConnection.Open();
+                string query = $"SELECT us.name, us.surname, cl.name AS \"przedmiot\", ass.name AS \"z czego\", ass.Date, sc.Grade FROM scores sc INNER JOIN assesments ass ON ass.id = sc.assesment_id INNER JOIN classes cl ON ass.classes_id = cl.id INNER JOIN users us ON us.id = sc.user_id WHERE us.id = \"{comboBox1.SelectedValue}\"";
+
+                MySqlDataAdapter da = new MySqlDataAdapter(query, databaseConnection);
+
+                DataSet ds = new DataSet();
+                da.Fill(ds, "oceny");
+                dataGridView1.DataSource = ds.Tables["oceny"];
+                databaseConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error 404: " + ex.Message);//TO RZADKO DZIALA, OLEWAMY
+            }
         }
 
         private void buttonDodaj_Click(object sender, EventArgs e)
