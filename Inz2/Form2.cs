@@ -36,6 +36,8 @@ namespace Inz2
         private void jesliUczen()
         {
             comboBox1.Hide();
+            buttonDodaj.Hide();
+            buttonRefresh.Hide();
 
             string MySQLConnectionString = "datasource = localhost; port = 3306; username = root; password =; database=dzienniczekv1";
             MySqlConnection databaseConnection = new MySqlConnection(MySQLConnectionString);
@@ -43,7 +45,7 @@ namespace Inz2
             try
             {
                 databaseConnection.Open();
-                string query = $"SELECT us.name, us.surname, cl.name AS \"przedmiot\", sc.Grade FROM scores sc INNER JOIN classes cl ON sc.classes_id = cl.id INNER JOIN users us ON us.id = sc.user_id WHERE us.surname = \"{zmienne.kredki_nazwisko}\"";
+                string query = $"SELECT us.name, us.surname, cl.name AS \"przedmiot\", ass.name AS \"z czego\", ass.Date, sc.Grade FROM scores sc INNER JOIN assesments ass ON ass.id = sc.assesment_id INNER JOIN classes cl ON ass.classes_id = cl.id INNER JOIN users us ON us.id = sc.user_id WHERE us.surname = \"{zmienne.kredki_nazwisko}\"";
 
                 MySqlDataAdapter da = new MySqlDataAdapter(query, databaseConnection);
 
@@ -102,7 +104,7 @@ namespace Inz2
             try
             {
                 databaseConnection.Open();
-                string query = $"SELECT us.name, us.surname, cl.name AS \"przedmiot\", sc.Grade FROM scores sc INNER JOIN classes cl ON sc.classes_id = cl.id INNER JOIN users us ON us.id = sc.user_id WHERE us.id = {comboBox1.SelectedValue}";
+                string query = $"SELECT us.name, us.surname, cl.name AS \"przedmiot\", ass.name AS \"z czego\", ass.Date, sc.Grade FROM scores sc INNER JOIN assesments ass ON ass.id = sc.assesment_id INNER JOIN classes cl ON ass.classes_id = cl.id INNER JOIN users us ON us.id = sc.user_id WHERE us.id = \"{comboBox1.SelectedValue}\"";
 
                 MySqlDataAdapter da = new MySqlDataAdapter(query, databaseConnection);
 
@@ -134,6 +136,15 @@ namespace Inz2
             f7.ShowDialog();
         }
 
-        
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            this.Refresh();
+        }
+
+        private void buttonDodaj_Click(object sender, EventArgs e)
+        {
+            FormDodajOcene fd = new FormDodajOcene();
+            fd.ShowDialog();
+        }
     }
 }

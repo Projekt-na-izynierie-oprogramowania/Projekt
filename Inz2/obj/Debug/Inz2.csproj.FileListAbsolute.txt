@@ -28,3 +28,4 @@ C:\Users\adria\source\repos\Projekt\Inz2\obj\Debug\Inz2.csproj.CopyComplete
 C:\Users\adria\source\repos\Projekt\Inz2\obj\Debug\Inz2.exe
 C:\Users\adria\source\repos\Projekt\Inz2\obj\Debug\Inz2.pdb
 C:\Users\adria\source\repos\Projekt\Inz2\obj\Debug\Inz2.FormLogin.resources
+C:\Users\adria\source\repos\Projekt\Inz2\obj\Debug\Inz2.FormDodajOcene.resources
