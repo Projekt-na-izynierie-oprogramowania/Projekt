@@ -17,6 +17,16 @@ namespace Inz2
             InitializeComponent();
         }
 
+        private void Form1_Load(object sender, EventArgs e)//otwieranie logowania
+        {
+            FormLogin fl = new FormLogin();
+            fl.ShowDialog();
+            labelAccesslvl.Text = zmienne.level;
+            labelUsername.Text = zmienne.kredki;
+        }
+
+
+        // // // // // // //GUZIKI
         private void button1_Click(object sender, EventArgs e)
         {
             Form2 f2 = new Form2();
@@ -52,5 +62,7 @@ namespace Inz2
             Form7 f7 = new Form7();
             f7.ShowDialog();
         }
+
+        
     }
 }
