@@ -63,6 +63,9 @@ namespace Inz2
             f7.ShowDialog();
         }
 
-        
+        private void buttonWyloguj_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
     }
 }

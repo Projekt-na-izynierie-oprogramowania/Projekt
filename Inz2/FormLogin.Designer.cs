@@ -87,6 +87,7 @@ namespace Inz2
             this.buttonWyjdz.TabIndex = 3;
             this.buttonWyjdz.Text = "WYJDŹ";
             this.buttonWyjdz.UseVisualStyleBackColor = true;
+            this.buttonWyjdz.Click += new System.EventHandler(this.buttonWyjdz_Click);
             // 
             // label2
             // 

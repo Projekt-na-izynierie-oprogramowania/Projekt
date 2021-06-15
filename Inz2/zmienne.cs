@@ -8,7 +8,7 @@ namespace Inz2
 {
     class zmienne
     {
-        public static string level;
-        public static string kredki;
+        public static string level = "0";
+        public static string kredki = "0";
     }
 }

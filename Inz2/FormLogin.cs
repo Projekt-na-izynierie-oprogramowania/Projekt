@@ -13,10 +13,11 @@ namespace Inz2
 {
     public partial class FormLogin : Form
     {
+        
         public FormLogin()
         {
             InitializeComponent();
-
+            this.ControlBox = false;
         }
 
         private void buttonZaloguj_Click(object sender, EventArgs e)
@@ -67,6 +68,16 @@ namespace Inz2
             {
                 MessageBox.Show("Error 404: " + e.Message);//TO RZADKO DZIALA, OLEWAMY
             }
+        }
+
+        private void buttonWyjdz_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
+
+        private void buttonAnuluj_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
