@@ -53,7 +53,8 @@ namespace Inz2
                         Console.WriteLine(myReader.GetString(0) + " - " + myReader.GetString(1) + " - " + myReader.GetString(2) + " - " + myReader.GetString(3) + " - " + myReader.GetString(4));
                     //}
 
-                    zmienne.kredki = $"{myReader.GetString(0)} {myReader.GetString(1)}";
+                    zmienne.kredki_imie = myReader.GetString(0);
+                    zmienne.kredki_nazwisko = myReader.GetString(1);
                     zmienne.level = myReader.GetString(4);
                     this.Close();
 

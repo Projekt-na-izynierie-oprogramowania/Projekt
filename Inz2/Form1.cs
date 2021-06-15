@@ -22,7 +22,7 @@ namespace Inz2
             FormLogin fl = new FormLogin();
             fl.ShowDialog();
             labelAccesslvl.Text = zmienne.level;
-            labelUsername.Text = zmienne.kredki;
+            labelUsername.Text = $"{zmienne.kredki_imie} {zmienne.kredki_nazwisko}";
         }
 
 

@@ -9,6 +9,7 @@ namespace Inz2
     class zmienne
     {
         public static string level = "0";
-        public static string kredki = "0";
+        public static string kredki_imie = "0";
+        public static string kredki_nazwisko = "0";
     }
 }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labelAccesslvl = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
@@ -49,14 +49,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Oceny";
             // 
-            // label5
+            // labelAccesslvl
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(595, 428);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "accesslvl";
+            this.labelAccesslvl.AutoSize = true;
+            this.labelAccesslvl.Location = new System.Drawing.Point(595, 428);
+            this.labelAccesslvl.Name = "labelAccesslvl";
+            this.labelAccesslvl.Size = new System.Drawing.Size(51, 13);
+            this.labelAccesslvl.TabIndex = 8;
+            this.labelAccesslvl.Text = "accesslvl";
             // 
             // label4
             // 
@@ -105,12 +105,14 @@
             this.comboBox1.Size = new System.Drawing.Size(202, 21);
             this.comboBox1.TabIndex = 12;
             this.comboBox1.Text = "Wybierz studenta";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(13, 45);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(728, 317);
             this.dataGridView1.TabIndex = 13;
             // 
@@ -123,7 +125,7 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.labelAccesslvl);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -139,7 +141,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelAccesslvl;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button5;
