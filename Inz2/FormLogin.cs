@@ -80,5 +80,17 @@ namespace Inz2
         {
 
         }
+
+        private void buttonadmin_Click(object sender, EventArgs e)
+        {
+            textBoxLogin.Text = "KowalskiJ";
+            textBoxHaslo.Text = "admin";
+        }
+
+        private void buttonlewa_Click(object sender, EventArgs e)
+        {
+            textBoxLogin.Text = "LewandowskiR";
+            textBoxHaslo.Text = "Kozaczek";
+        }
     }
 }

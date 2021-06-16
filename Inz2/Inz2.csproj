@@ -54,6 +54,12 @@
     <Compile Include="FormDodajOcene.Designer.cs">
       <DependentUpon>FormDodajOcene.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDodajTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDodajTest.Designer.cs">
+      <DependentUpon>FormDodajTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="zmienne.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -128,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDodajOcene.resx">
       <DependentUpon>FormDodajOcene.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDodajTest.resx">
+      <DependentUpon>FormDodajTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

@@ -73,7 +73,7 @@ namespace Inz2
             try
             {
                 databaseConnection.Open();
-                string query = "SELECT CONCAT(`name`, ' ',`surname`) AS `whole_name`, `id` FROM `users`";
+                string query = "SELECT CONCAT(`name`, ' ',`surname`) AS `whole_name`, `id` FROM `users` WHERE `accesslevel` = 1";
 
                 MySqlDataAdapter da = new MySqlDataAdapter(query, databaseConnection);
 

@@ -37,6 +37,8 @@ namespace Inz2
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.labelChecker = new System.Windows.Forms.Label();
+            this.buttonlewa = new System.Windows.Forms.Button();
+            this.buttonadmin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -116,11 +118,35 @@ namespace Inz2
             this.labelChecker.Size = new System.Drawing.Size(0, 13);
             this.labelChecker.TabIndex = 5;
             // 
+            // buttonlewa
+            // 
+            this.buttonlewa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonlewa.Location = new System.Drawing.Point(78, 155);
+            this.buttonlewa.Name = "buttonlewa";
+            this.buttonlewa.Size = new System.Drawing.Size(125, 66);
+            this.buttonlewa.TabIndex = 6;
+            this.buttonlewa.Text = "lewandoski";
+            this.buttonlewa.UseVisualStyleBackColor = true;
+            this.buttonlewa.Click += new System.EventHandler(this.buttonlewa_Click);
+            // 
+            // buttonadmin
+            // 
+            this.buttonadmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonadmin.Location = new System.Drawing.Point(78, 235);
+            this.buttonadmin.Name = "buttonadmin";
+            this.buttonadmin.Size = new System.Drawing.Size(125, 66);
+            this.buttonadmin.TabIndex = 6;
+            this.buttonadmin.Text = "admin";
+            this.buttonadmin.UseVisualStyleBackColor = true;
+            this.buttonadmin.Click += new System.EventHandler(this.buttonadmin_Click);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonadmin);
+            this.Controls.Add(this.buttonlewa);
             this.Controls.Add(this.labelChecker);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -146,5 +172,7 @@ namespace Inz2
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelChecker;
+        private System.Windows.Forms.Button buttonlewa;
+        private System.Windows.Forms.Button buttonadmin;
     }
 }
