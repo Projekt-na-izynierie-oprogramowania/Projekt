@@ -20,20 +20,18 @@ namespace Inz2
 
         private void Obecności_Load(object sender, EventArgs e)
         {
-            try
-            {
-                MySqlConnection connection = new MySqlConnection("datasource=localhost;port=3306;username=root;password=");
-                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM test.obecnosci", connection);
-                connection.Open();
-                DataSet ds = new DataSet();
-                adapter.Fill(ds, "obecnosci");
-                dataGridView1.DataSource = ds.Tables["obecnosci"];
-                connection.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            mycc();
+        }
+
+        private void mycc()
+        {
+            textBox1.Text = monthCalendar1.SelectionStart.ToString();
+            string result = textBox1.Text.Substring(0, 10);
+            textBox1.Text = result;
+        }
+        private void loadForToday()
+        {
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,6 +42,11 @@ namespace Inz2
         {
             Form7 f7 = new Form7();
             f7.ShowDialog();
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            mycc();
         }
     }
 }
