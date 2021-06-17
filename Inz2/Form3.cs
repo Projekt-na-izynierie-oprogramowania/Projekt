@@ -20,12 +20,132 @@ namespace Inz2
 
         private void Obecności_Load(object sender, EventArgs e)
         {
-            mycc();
+            label5.Text = zmienne.level;
             fillPrzedmioty();
+            if (zmienne.level == "1")//JESLI UCZEN
+            {
+                buttonO.Hide();
+                buttonS.Hide();
+                buttonNU.Hide();
+                buttonNN.Hide();
+            }
+
         }
 
+        private void alterRow(string if_present)
+        {
+            string id_classes = getSelectedClassesId();
+            string user_id = getSelectedUserId();
+
+            string MySQLConnectionString = "datasource = localhost; port = 3306; username = root; password =; database=dzienniczekv1";
+            string query  = $"UPDATE presences SET if_present = \"{if_present}\" WHERE user_id = \"{user_id}\" AND shedule_id = \"{id_classes}\"";
+
+            using (MySqlConnection databaseConnection = new MySqlConnection(MySQLConnectionString))
+            using (MySqlCommand komenda = new MySqlCommand(query, databaseConnection))
+            {
+                databaseConnection.Open();
+                komenda.ExecuteNonQuery();
+                databaseConnection.Close();
+            }
+        }
+
+        private string getSelectedUserId()
+        {
+            int row = dataGridView1.CurrentRow.Index;
+            string nazwisko = dataGridView1.Rows[row].Cells[1].Value.ToString();
+
+            string query = $"SELECT `id` FROM `users` WHERE surname =\"{nazwisko}\" ";
+
+
+            string MySQLConnectionString = "datasource = localhost; port = 3306; username = root; password =; database=dzienniczekv1";
+            MySqlConnection databaseConnection = new MySqlConnection(MySQLConnectionString);
+
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+
+            try
+            {
+                databaseConnection.Open();
+
+                MySqlDataReader myReader = commandDatabase.ExecuteReader();
+
+                if (myReader.HasRows)
+                {
+
+                    myReader.Read();
+                    string zwroconeid = myReader.GetString(0);
+                    databaseConnection.Close();
+                    return zwroconeid;
+
+                }
+                else
+                {
+                    labelAlert.Text = "Nie moge wylapac id zajec";
+                    databaseConnection.Close();
+                    return "nie dzialam";
+                }
+
+
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error 404: " + e.Message);//TO RZADKO DZIALA, OLEWAMY
+                return "nie dzialam";
+            }
+        }
+
+        private string getSelectedClassesId()
+        {
+            int row = dataGridView1.CurrentRow.Index;
+            string data = dataGridView1.Rows[row].Cells[2].Value.ToString().Substring(0, 10);
+            string godzina = dataGridView1.Rows[row].Cells[3].Value.ToString();
+
+            string query = $"SELECT `id` FROM `classes_schedule` WHERE date = STR_TO_DATE('{data}','%d.%m.%Y') AND time = \"{godzina}\"";
+
+
+            string MySQLConnectionString = "datasource = localhost; port = 3306; username = root; password =; database=dzienniczekv1";
+            MySqlConnection databaseConnection = new MySqlConnection(MySQLConnectionString);
+
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+
+            try
+            {
+                databaseConnection.Open();
+
+                MySqlDataReader myReader = commandDatabase.ExecuteReader();
+
+                if (myReader.HasRows)
+                {
+                    
+                    myReader.Read();
+                    string zwroconeid = myReader.GetString(0);
+                    databaseConnection.Close();
+                    return zwroconeid;
+
+                }
+                else
+                {
+                    labelAlert.Text = "Nie moge wylapac id zajec";
+                    databaseConnection.Close();
+                    return "nie dzialam";
+                }
+
+                
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error 404: " + e.Message);//TO RZADKO DZIALA, OLEWAMY
+                return "nie dzialam";
+            }
+        }
 
         private void comboBoxprzedmiot_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            refreshPresences();
+        }
+
+        private void refreshPresences()
         {
             if (zmienne.level == "3" || zmienne.level == "2")//JESLI ADMIN
             {
@@ -73,7 +193,6 @@ namespace Inz2
             }
         }
 
-
         private void fillPrzedmioty()
         {
             string MySQLConnectionString = "datasource = localhost; port = 3306; username = root; password =; database=dzienniczekv1";
@@ -102,12 +221,6 @@ namespace Inz2
 
         
 
-        private void mycc()
-        {
-            textBox1.Text = monthCalendar1.SelectionStart.ToString();
-            string result = textBox1.Text.Substring(0, 10);
-            textBox1.Text = result;
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -119,11 +232,29 @@ namespace Inz2
             f7.ShowDialog();
         }
 
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+
+        private void buttonO_Click(object sender, EventArgs e)
         {
-            mycc();
+            alterRow("O");
+            refreshPresences();
         }
 
-        
+        private void buttonS_Click(object sender, EventArgs e)
+        {
+            alterRow("S");
+            refreshPresences();
+        }
+
+        private void buttonNN_Click(object sender, EventArgs e)
+        {
+            alterRow("NN");
+            refreshPresences();
+        }
+
+        private void buttonNU_Click(object sender, EventArgs e)
+        {
+            alterRow("NU");
+            refreshPresences();
+        }
     }
 }
