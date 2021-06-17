@@ -160,9 +160,8 @@
             this.labelAlert.AutoSize = true;
             this.labelAlert.Location = new System.Drawing.Point(142, 311);
             this.labelAlert.Name = "labelAlert";
-            this.labelAlert.Size = new System.Drawing.Size(40, 13);
+            this.labelAlert.Size = new System.Drawing.Size(0, 13);
             this.labelAlert.TabIndex = 26;
-            this.labelAlert.Text = "dummy";
             // 
             // buttonDodaj
             // 

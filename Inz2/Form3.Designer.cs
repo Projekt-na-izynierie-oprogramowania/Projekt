@@ -35,15 +35,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.testcolumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button3 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxprzedmiot = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +70,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(593, 428);
+            this.label5.Location = new System.Drawing.Point(691, 425);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 13);
             this.label5.TabIndex = 13;
@@ -80,7 +79,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(505, 428);
+            this.label4.Location = new System.Drawing.Point(594, 425);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 13);
             this.label4.TabIndex = 12;
@@ -89,7 +88,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(666, 428);
+            this.label2.Location = new System.Drawing.Point(757, 425);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 13);
             this.label2.TabIndex = 11;
@@ -113,21 +112,6 @@
             this.monthCalendar1.TabIndex = 17;
             this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.testcolumn2});
-            this.dataGridView1.Location = new System.Drawing.Point(332, 45);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(456, 364);
-            this.dataGridView1.TabIndex = 18;
-            // 
-            // testcolumn2
-            // 
-            this.testcolumn2.HeaderText = "Column2label";
-            this.testcolumn2.Name = "testcolumn2";
-            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(23, 365);
@@ -137,14 +121,15 @@
             this.button3.Text = "Zapisz zmiany";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // comboBoxprzedmiot
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(23, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(269, 21);
-            this.comboBox1.TabIndex = 23;
-            this.comboBox1.Text = "Wybierz przedmiot";
+            this.comboBoxprzedmiot.FormattingEnabled = true;
+            this.comboBoxprzedmiot.Location = new System.Drawing.Point(23, 12);
+            this.comboBoxprzedmiot.Name = "comboBoxprzedmiot";
+            this.comboBoxprzedmiot.Size = new System.Drawing.Size(269, 21);
+            this.comboBoxprzedmiot.TabIndex = 23;
+            this.comboBoxprzedmiot.Text = "Wybierz przedmiot";
+            this.comboBoxprzedmiot.SelectedIndexChanged += new System.EventHandler(this.comboBoxprzedmiot_SelectedIndexChanged);
             // 
             // button4
             // 
@@ -190,19 +175,28 @@
             this.textBox1.Size = new System.Drawing.Size(144, 20);
             this.textBox1.TabIndex = 28;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(316, 45);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(553, 361);
+            this.dataGridView1.TabIndex = 29;
+            // 
             // Obecności
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(888, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxprzedmiot);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -228,14 +222,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn testcolumn2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxprzedmiot;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

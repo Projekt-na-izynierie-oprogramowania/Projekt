@@ -110,6 +110,9 @@ namespace Inz2
                 else
                 {
                     databaseConnection.Close();
+
+                    ////////
+
                     query = $"INSERT INTO classes_schedule VALUES (NULL,\"{comboBoxPrzedmiot.SelectedValue}\", STR_TO_DATE('{labelDay.Text}','%d.%m.%Y'),\"{value}\")";
 
                     
@@ -117,10 +120,16 @@ namespace Inz2
                     {
                         databaseConnection.Open();
                         komenda.ExecuteNonQuery();
-                        
+                        databaseConnection.Close();
+
                     }
 
                     fillToday();
+                    ////////
+                    
+                    getDodaneId();
+                    dodajPusteObecnosci();
+                    
                 }
 
                 databaseConnection.Close();
@@ -133,6 +142,102 @@ namespace Inz2
                 MessageBox.Show("Error 404: " + ex.Message);//TO RZADKO DZIALA, OLEWAMY
             }
         }
+
+        private void dodajPusteObecnosci()
+        {
+            string query = "SELECT `id` FROM `users` WHERE accesslevel = 1";
+            
+
+            string MySQLConnectionString = "datasource = localhost; port = 3306; username = root; password =; database=dzienniczekv1";
+            MySqlConnection databaseConnection = new MySqlConnection(MySQLConnectionString);
+
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+
+            try
+            {
+                databaseConnection.Open();
+
+                MySqlDataReader myReader = commandDatabase.ExecuteReader();
+
+                if (myReader.HasRows)
+                {
+                    while (myReader.Read())
+                    {
+                        dodajObecnosc(myReader.GetString(0));
+                    }
+
+                }
+                else
+                {
+                    labelAlert.Text = "Podano błędne dane, spróbuj jeszcze raz!";
+                }
+
+                databaseConnection.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error 404: " + e.Message);//TO RZADKO DZIALA, OLEWAMY
+            }
+        }
+
+
+        private void dodajObecnosc(string id_ucznia)
+        {
+            string MySQLConnectionString2 = "datasource = localhost; port = 3306; username = root; password =; database=dzienniczekv1";
+            string query2 = $"INSERT INTO presences VALUES (NULL,\" \",\"{id_ucznia}\",\"{zmienne.id_dadanych_zajec}\")";
+
+            using (MySqlConnection databaseConnection2 = new MySqlConnection(MySQLConnectionString2))
+            using (MySqlCommand komenda = new MySqlCommand(query2, databaseConnection2))
+            {
+                databaseConnection2.Open();
+                komenda.ExecuteNonQuery();
+                databaseConnection2.Close();
+            }
+        }
+
+
+        private void getDodaneId()
+        {
+            KeyValuePair<string, string> kvp = (KeyValuePair<string, string>)comboBoxGodzina.SelectedItem;
+            string value = kvp.Value.ToString();
+            string query = $"SELECT `id` FROM `classes_schedule` WHERE date = STR_TO_DATE('{labelDay.Text}','%d.%m.%Y') AND time = \"{value}\"";
+
+
+            string MySQLConnectionString = "datasource = localhost; port = 3306; username = root; password =; database=dzienniczekv1";
+            MySqlConnection databaseConnection = new MySqlConnection(MySQLConnectionString);
+
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+
+            try
+            {
+                databaseConnection.Open();
+
+                MySqlDataReader myReader = commandDatabase.ExecuteReader();
+
+                if (myReader.HasRows)
+                {
+                    
+                    myReader.Read();
+                    zmienne.id_dadanych_zajec = myReader.GetString(0);
+
+                }
+                else
+                {
+                    labelAlert.Text = "Nie moge wylapac id dodanych";
+                }
+
+                databaseConnection.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error 404: " + e.Message);//TO RZADKO DZIALA, OLEWAMY
+            }
+        }
+
+
+
 
 
         private void fillToday()
