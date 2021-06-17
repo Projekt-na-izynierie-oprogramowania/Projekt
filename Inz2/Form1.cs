@@ -59,6 +59,7 @@ namespace Inz2
 
         private void button5_Click(object sender, EventArgs e)
         {
+            zmienne.default_topic = $"Problem techniczny z panelem glownym dzienniczka. {DateTime.Now}";
             Form7 f7 = new Form7();
             f7.ShowDialog();
         }

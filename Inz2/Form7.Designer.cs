@@ -78,6 +78,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Wyślij";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -98,6 +99,7 @@
             this.button5.TabIndex = 29;
             this.button5.Text = "Zgłoś problem techniczny";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label5
             // 
@@ -170,6 +172,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form7";
             this.Text = "Nowa wiadmość";
+            this.Load += new System.EventHandler(this.Form7_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

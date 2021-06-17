@@ -45,8 +45,7 @@ namespace Inz2
 
                 if(myReader.HasRows)
                 {
-                    MessageBox.Show("Jest Giciorek");
-
+                    
                     //while(myReader.Read())
                     //{
                         myReader.Read();
